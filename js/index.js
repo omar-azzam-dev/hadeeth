@@ -3,6 +3,8 @@ const stopBtn = document.querySelector('.main__stop');
 const indicator = document.querySelector('.audio-loader__indicator');
 const audio = document.querySelector('audio');
 const playBtn = document.querySelector('.main__play');
+const plaayBtnNormal = document.querySelector('.main__play-normal')
+const playBtnHover = document.querySelector('.main__play-hover')
 const hadeeth = document.querySelector('.hadeeth');
 const newHadeethBtn = document.querySelector('button');
 const hadeethLoader = document.querySelector('.hadeeth-loader');
@@ -42,10 +44,12 @@ function pageLoaded(e) {
 	indicator.style.animationPlayState = 'paused';
 
 	playBtn.addEventListener('mouseenter', function (e) {
-		playBtn.src = '/imgs/play-hover.png';
+		playBtnHover.classList.remove('hide');
+		plaayBtnNormal.classList.add('hide');
 	});
 	playBtn.addEventListener('mouseleave', function (e) {
-		playBtn.src = '/imgs/play.png';
+		plaayBtnNormal.classList.remove('hide');
+		playBtnHover.classList.add('hide');
 	});
 	playBtn.addEventListener('click', function (e) {
 		playBtn.classList.add('hide');

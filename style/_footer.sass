@@ -1,16 +1,21 @@
 footer
-    width: 100%
+    width: 98%
     position: fixed
     bottom: 30px
+    left: 1%
     display: grid
     grid-template-columns: repeat(3, 1fr)
-footer > *
-    align-self: center
-    justify-self: center
-.second-text, a
+    text-underline-offset: 7px
     font-size: .75em
     color: $light-gray
 a
-    text-underline-offset: 7px
+    color: inherit
 a:hover, a:active
     color: $black
+.second-text
+    justify-self: right
+    align-items: center
+footer a:nth-of-type(1)
+    justify-self: center
+footer a:nth-of-type(2)
+    justify-self: left

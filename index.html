@@ -7,7 +7,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap"
 			rel="stylesheet"
 		/>
 		<title>حديث</title>
@@ -16,14 +16,14 @@
 	<body>
 		<!-- LOADER -->
 		<div class="loader">
-			<p class="logo loader__logo">حديث</p>
+			<img class="logo loader__logo" alt="حديث" src="/imgs/logo.svg" />
 		</div>
 
 		<div class="grass"></div>
 
 		<!-- MAIN -->
 		<main>
-			<p class="logo main__logo">حديث</p>
+			<img class="logo main__logo" src="/imgs/logo.svg" alt="حديث" />
 			<!-- we will use js to add content to it -->
 			<div class="hadeeth-loader hadeeth-loader-page">
 				<div class="dot dot-1"></div>
@@ -34,7 +34,10 @@
 			<!-- we will use js to add src to the audio -->
 			<audio src=""></audio>
 			<div class="controls">
-				<img src="/imgs/play.png" class="main__play" />
+				<div class="main__play">
+					<img src="./imgs/play.svg" alt="شغل الآن" class="main__play-normal" />
+					<img src="./imgs/play-hover.svg" alt="شغل الآن" class="main__play-hover hide" />
+				</div>
 				<div class="main__pause hide">
 					<div class="rect"></div>
 					<div class="rect"></div>
