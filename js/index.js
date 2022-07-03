@@ -52,17 +52,31 @@ function pageLoaded(e) {
 		playBtnHover.classList.add('hide');
 	});
 	playBtn.addEventListener('click', function (e) {
+		audio.play();
+	});
+	audio.addEventListener('play', function(e){
+		indicator.style.animationPlayState = 'running';
 		playBtn.classList.add('hide');
 		pauseBtn.classList.remove('hide');
-		audio.play();
-		indicator.style.animationPlayState = 'running';
-	});
+	})
 	pauseBtn.addEventListener('click', function (e) {
+		audio.pause();
+	});
+	audio.addEventListener('pause', function(e){
+		indicator.style.animationPlayState = 'paused';
 		pauseBtn.classList.add('hide');
 		playBtn.classList.remove('hide');
-		audio.pause();
+	})
+	audio.addEventListener('waiting', function(e){
 		indicator.style.animationPlayState = 'paused';
-	});
+		pauseBtn.classList.add('hide');
+		playBtn.classList.remove('hide');
+	})
+	audio.addEventListener('playing', function(e){
+		indicator.style.animationPlayState = 'running';
+		playBtn.classList.add('hide');
+		pauseBtn.classList.remove('hide');
+	})
 	stopBtn.addEventListener('click', function (e) {
 		audio.currentTime = 0;
 		audio.pause();
