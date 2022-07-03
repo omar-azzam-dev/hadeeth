@@ -30,13 +30,12 @@ audio.src = audioSrc;
 function pageLoaded(e) {
 	let loader = document.querySelector('.loader');
 	let loaderLogo = document.querySelector('.loader__logo');
-	loaderLogo.style.animationPlayState = 'paused';
+
+	loader.style.animation = 'hide 1s ease-out 0s 1 normal forwards';
+	hadeethLoader.classList.remove('hadeeth-loader-page');
 
 	setTimeout(function (e) {
-		loader.style.animation = 'hide 1s ease-out 0s 1 normal forwards';
-		setTimeout(function (e) {
-			loader.remove();
-		}, 1000);
+		loader.remove();
 	}, 1000);
 
 	indicator.style.animation = `move ${audio.duration}s linear 0s 1 normal forwards`;

@@ -12,24 +12,6 @@ body {
   direction: rtl;
 }
 
-@-webkit-keyframes light {
-  0% {
-    text-shadow: 0px 0px 10px #489D51;
-  }
-  100% {
-    text-shadow: 0px 0px 60px #489D51;
-  }
-}
-
-@keyframes light {
-  0% {
-    text-shadow: 0px 0px 10px #489D51;
-  }
-  100% {
-    text-shadow: 0px 0px 60px #489D51;
-  }
-}
-
 @-webkit-keyframes hide {
   0% {
     opacity: 100%;
@@ -68,19 +50,19 @@ body {
 
 @-webkit-keyframes dot-color-change {
   0% {
-    background-color: #71BF79;
+    background-color: #71c279;
   }
   100% {
-    background-color: #489D51;
+    background-color: #3c8143;
   }
 }
 
 @keyframes dot-color-change {
   0% {
-    background-color: #71BF79;
+    background-color: #71c279;
   }
   100% {
-    background-color: #489D51;
+    background-color: #3c8143;
   }
 }
 
@@ -95,9 +77,9 @@ body {
 }
 
 .logo {
-  color: #71BF79;
+  color: #71c279;
   font-size: 2.5em;
-  font-family: 'El Messiri';
+  font-family: 'El Messiri', 'Cairo', Arial, sans-serif;
 }
 
 .loader__logo {
@@ -106,8 +88,19 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-animation: light 1s ease-in-out 0s infinite alternate none;
-          animation: light 1s ease-in-out 0s infinite alternate none;
+  text-shadow: 0px 0px 40px #3c8143;
+}
+
+div.hadeeth-loader-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 100;
 }
 
 .grass {
@@ -161,8 +154,7 @@ main {
   margin: 2px;
   width: 30px;
   height: 30px;
-  background-color: #71BF79;
-  border-radius: 100%;
+  background-color: #71c279;
 }
 
 .dot-1 {
@@ -176,8 +168,8 @@ main {
 }
 
 .dot-3 {
-  -webkit-animation: dot-color-change 500ms ease-out 1s infinite alternate backwards;
-          animation: dot-color-change 500ms ease-out 1s infinite alternate backwards;
+  -webkit-animation: dot-color-change 500ms ease-out 0s infinite alternate backwards;
+          animation: dot-color-change 500ms ease-out 0s infinite alternate backwards;
 }
 
 .controls {
@@ -215,17 +207,17 @@ main {
   width: 8px;
   height: 100%;
   display: inline-block;
-  background-color: #71BF79;
+  background-color: #71c279;
 }
 
 .main__stop {
   width: 30px;
   height: 30px;
-  background-color: #71BF79;
+  background-color: #71c279;
 }
 
 .main__stop:hover {
-  background-color: #489D51;
+  background-color: #3c8143;
   cursor: pointer;
 }
 
@@ -237,7 +229,7 @@ main {
   width: 12.5em;
   height: 1.25em;
   border-radius: 10px;
-  background-color: #71BF79;
+  background-color: #71c279;
   margin-left: auto;
   position: relative;
   margin: 0 5px;
@@ -247,9 +239,9 @@ main {
   width: 1.666666667em;
   height: 1.666666667em;
   border-radius: 100%;
-  background-color: #489D51;
-  -webkit-box-shadow: #489D51 -2px 2px 20px 0px;
-          box-shadow: #489D51 -2px 2px 20px 0px;
+  background-color: #3c8143;
+  -webkit-box-shadow: #3c8143 -2px 2px 20px 0px;
+          box-shadow: #3c8143 -2px 2px 20px 0px;
   position: absolute;
   left: -1px;
   top: -5px;
@@ -257,7 +249,7 @@ main {
 
 button {
   margin-top: 30px;
-  background-color: #71BF79;
+  background-color: #71c279;
   padding: .45em 2.5em;
   font-family: inherit;
   border: 2px solid black;
@@ -267,11 +259,11 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: #489D51;
+  background-color: #3c8143;
 }
 
 button:active {
-  background-color: #71BF79;
+  background-color: #71c279;
 }
 
 .hide {
@@ -354,10 +346,7 @@ a:hover, a:active {
 
 @media screen and (max-width: 400px) {
   body {
-    font-size: 17px;
-  }
-  .main__play {
-    margin-left: 15px;
+    font-size: 16.7px;
   }
   .audio-loader {
     margin: 0 2px;
