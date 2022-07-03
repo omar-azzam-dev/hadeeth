@@ -1,23 +1,24 @@
-.loader
+.page-loader
     width: 100vw
     height: 100vh
     position: fixed
     background-color: $black
-    z-index: 10
     top: 0
     left: 0
+    z-index: 10
 
-.loader__logo
+.page-loader-logo
     position: fixed
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    text-shadow:  0px 0px 40px  $green
+    z-index: 20
 
-div.hadeeth-loader-page
-    display: flex
+.page-loader-hadeeth-loader
+    // we add this to prevent hide class from over writing it
+    display: block !important
     position: fixed
-    top: 55%
+    top: 60%
     left: 50%
     transform: translateX(-50%)
-    z-index: 100
+    z-index: 20

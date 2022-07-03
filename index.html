@@ -4,44 +4,47 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- Css -->
+		<link rel="stylesheet" href="/css/style.min.css" />
+		<!-- Icon -->
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
 		<title>حديث</title>
-		<link rel="stylesheet" href="css/style.min.css" />
 	</head>
 	<body>
-		<!-- LOADER -->
-		<div class="loader">
-			<img class="logo loader__logo" alt="حديث" src="/imgs/logo.svg" />
-		</div>
+		<!-- Page Loader -->
+		<div class="page-loader"></div>
 
 		<div class="grass"></div>
 
-		<!-- MAIN -->
+		<!-- Main -->
 		<main>
-			<img class="logo main__logo" src="/imgs/logo.svg" alt="حديث" />
-			<!-- we will use js to add content to it -->
-			<div class="hadeeth-loader hadeeth-loader-page">
-				<div class="dot dot-1"></div>
-				<div class="dot dot-2"></div>
-				<div class="dot dot-3"></div>
+			<img class="logo page-loader-logo" src="/imgs/logo.svg" alt="حديث" />
+			<div class="hadeeth-loader page-loader-hadeeth-loader">
+				<div></div>
+				<div></div>
+				<div></div>
 			</div>
-			<p class="hadeeth main__hadeeth"></p>
-			<!-- we will use js to add src to the audio -->
-			<audio src="" controls></audio>
-			<button>حديث آخر</button>
+			<p class="hadeeth-text"></p>
+			<audio class="hadeeth-audio" src="" controls></audio>
+			<button class="new-hadeeth">حديث آخر</button>
 		</main>
 
-		<!-- FOOTER -->
+		<!-- Footer -->
 		<footer>
-			<p class="second-text">التسجيل الصوتي <a href="#">ليوسف الدالى</a></p>
+			<p>التسجيل الصوتي <a href="#" class="audio-creator">ليوسف الدالى</a></p>
 			<a href="#">صنع بشغف</a>
 			<a href="#">تبرع بصدقه جاريه لتطوير المشروع</a>
 		</footer>
+
 		<script src="js/index.js"></script>
 	</body>
 </html>

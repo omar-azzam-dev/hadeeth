@@ -1,97 +1,111 @@
-const pauseBtn = document.querySelector('.main__pause');
-const stopBtn = document.querySelector('.main__stop');
-const indicator = document.querySelector('.audio-loader__indicator');
-const audio = document.querySelector('audio');
-const playBtn = document.querySelector('.main__play');
-const plaayBtnNormal = document.querySelector('.main__play-normal')
-const playBtnHover = document.querySelector('.main__play-hover')
-const hadeeth = document.querySelector('.hadeeth');
-const newHadeethBtn = document.querySelector('button');
+/* -------------------------------- Variables ------------------------------- */
+const pageLoader = document.querySelector('.page-loader');
 const hadeethLoader = document.querySelector('.hadeeth-loader');
+const hadeethAudio = document.querySelector('.hadeeth-audio');
+const hadeethText = document.querySelector('.hadeeth-text');
+const newHadeeth = document.querySelector('.new-hadeeth');
+const audioCreator = document.querySelector('.audio-creator');
+const logo = document.querySelector('.logo');
 
-let watchedAhadeeth = [];
+const ahadeethCount = 1;
+/* ------------------------------------ * ----------------------------------- */
 
-let randomNum = Math.floor(Math.random() * 11);
+/* --------------------------- Event Listiners --------------------------- */
+document.addEventListener('hadeethLoaded', function (e) {
+	hadeethLoader.classList.add('hide');
+});
 
-// random num is set manually for purpose of test
-randomNum = 0;
-
-watchedAhadeeth.push(randomNum);
-
-let audioSrc = `/sounds/${randomNum}.mp3`;
-let hadeethSrc = `/el-ahadeeth/${randomNum}.txt`;
-
-fetch(hadeethSrc)
-	.then((resp) => resp.text())
-	.then((text) => {
-		hadeeth.innerText = text;
-	});
-
-audio.src = audioSrc;
-
-function pageLoaded(e) {
-	let loader = document.querySelector('.loader');
-	let loaderLogo = document.querySelector('.loader__logo');
-
-	loader.style.animation = 'hide 1s ease-out 0s 1 normal forwards';
-	hadeethLoader.classList.remove('hadeeth-loader-page');
-
+newHadeeth.addEventListener('click', function (e) {
+	hadeethLoader.classList.remove('hide');
+	hadeethText.innerText = '';
+	hadeethAudio.src = '';
 	setTimeout(function (e) {
-		loader.remove();
+		getNewHadeeth();
 	}, 1000);
+});
 
-	indicator.style.animation = `move ${audio.duration}s linear 0s 1 normal forwards`;
-	indicator.style.animationPlayState = 'paused';
+window.onload = function (e) {
+	setTimeout(() => removePageLoader(), 1000);
+};
+/* ------------------------------------ * ----------------------------------- */
 
-	playBtn.addEventListener('mouseenter', function (e) {
-		playBtnHover.classList.remove('hide');
-		plaayBtnNormal.classList.add('hide');
-	});
-	playBtn.addEventListener('mouseleave', function (e) {
-		plaayBtnNormal.classList.remove('hide');
-		playBtnHover.classList.add('hide');
-	});
-	playBtn.addEventListener('click', function (e) {
-		audio.play();
-	});
-	audio.addEventListener('play', function(e){
-		indicator.style.animationPlayState = 'running';
-		playBtn.classList.add('hide');
-		pauseBtn.classList.remove('hide');
-	})
-	pauseBtn.addEventListener('click', function (e) {
-		audio.pause();
-	});
-	audio.addEventListener('pause', function(e){
-		indicator.style.animationPlayState = 'paused';
-		pauseBtn.classList.add('hide');
-		playBtn.classList.remove('hide');
-	})
-	audio.addEventListener('waiting', function(e){
-		indicator.style.animationPlayState = 'paused';
-		pauseBtn.classList.add('hide');
-		playBtn.classList.remove('hide');
-	})
-	audio.addEventListener('playing', function(e){
-		indicator.style.animationPlayState = 'running';
-		playBtn.classList.add('hide');
-		pauseBtn.classList.remove('hide');
-	})
-	stopBtn.addEventListener('click', function (e) {
-		audio.currentTime = 0;
-		audio.pause();
-		pauseBtn.classList.add('hide');
-		playBtn.classList.remove('hide');
-		indicator.style.animation = '';
-		setTimeout(function (e) {
-			indicator.style.animation = `move ${audio.duration}s linear 0s 1 normal forwards`;
-			indicator.style.animationPlayState = 'paused';
-		}, 20);
-	});
-	newHadeethBtn.addEventListener('click', function (e) {
-		hadeeth.style.display = 'none';
-		hadeethLoader.style.display = 'flex';
-	});
+/* ---------------------------------- Code ---------------------------------- */
+sessionStorage.setItem('watched', '');
+getNewHadeeth();
+/* ------------------------------------ * ----------------------------------- */
+
+/* -------------------------------- Functions ------------------------------- */
+function getNewHadeeth() {
+	let randomNum;
+
+	if (getNewHadeeth.erroredTextLoad !== undefined) {
+		clearTimeout(getNewHadeeth.erroredTextLoad);
+		getNewHadeeth.erroredTextLoad = undefined;
+	}
+	if (getNewHadeeth.erroredAudioLoad !== undefined) {
+		clearTimeout(getNewHadeeth.erroredAudioLoad);
+		getNewHadeeth.erroredAudioLoad = undefined;
+	}
+
+	function getUniqueRandomNum() {
+		let unique = false;
+		let readed = sessionStorage.getItem('watched').split(',');
+		if (readed.length - 1 === ahadeethCount) {
+			sessionStorage.setItem('watched', '');
+			readed = [''];
+		}
+		while (!unique) {
+			randomNum = Math.floor(Math.random() * ahadeethCount + 1);
+			unique = true;
+			for (num of readed) {
+				if (randomNum == num) {
+					unique = false;
+				}
+			}
+		}
+		sessionStorage.setItem('watched', sessionStorage.getItem('watched') + randomNum + ',');
+	}
+	function getHadeethAudio() {
+		hadeethAudio.src = `/sounds/${randomNum}.mp3`;
+		hadeethAudio.onerror = (e) => {
+			getNewHadeeth.erroredAudioLoad = setTimeout(getHadeethAudio, 2000);
+		};
+	}
+	function getHadeethText() {
+		fetch(`/el-ahadeeth/${randomNum}.txt`)
+			.then((resp) => {
+				if (resp.ok) {
+					return resp.text();
+				}
+			})
+			.then((text) => {
+				if (text !== undefined) {
+					let lines = text.split('\n');
+					let data = lines.shift().split(',');
+					text = lines.join('\n');
+
+					audioCreator.innerText = data[0];
+					audioCreator.setAttribute('href', data[1]);
+
+					hadeethText.innerText = text;
+					document.dispatchEvent(new Event('hadeethLoaded'));
+				} else {
+					getNewHadeeth.erroredTextLoad = setTimeout(() => getHadeethText(), 2000);
+				}
+			});
+	}
+
+	getUniqueRandomNum();
+	getHadeethAudio();
+	getHadeethText();
 }
 
-window.onload = pageLoaded;
+function removePageLoader() {
+	pageLoader.style.animation = 'hide 1s ease-out 0s 1 normal forwards';
+	logo.classList.remove('page-loader-logo');
+	hadeethLoader.classList.remove('page-loader-hadeeth-loader');
+	setTimeout(function (e) {
+		pageLoader.remove();
+	}, 1000);
+}
+/* ------------------------------------ * ----------------------------------- */
