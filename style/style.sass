@@ -1,0 +1,63 @@
+// GLOBAL STYLING
+* 
+    padding: 0
+    margin: 0
+body
+    font-family: 'Cairo', Arial, sans-serif
+    width: 100vw
+    height: 100vh
+    overflow-x: hidden
+    font-size: 24px
+    direction: rtl
+
+// COLORS
+$light-green: #71BF79
+$green: #489D51
+$black: #000000
+$light-gray: #7D7D7D
+
+@import _animations.sass
+
+@import _loader.sass
+
+.grass
+    width: 100%
+    height: 112px
+    background-image: url('/imgs/grass.png')
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1
+
+
+@import _main.sass
+
+@import _footer.sass
+
+@media screen and ( max-width:  750px)
+    body
+        font-size: 22px
+@media screen and ( max-width:  653px)
+    body
+        font-size: 20px
+@media screen and ( max-width: 590px )
+    body
+        font-size: 18px
+@media  screen and ( max-width:  547px)
+    body
+        height: auto
+    footer
+        position: relative
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+    footer > *
+        margin: 15px 0
+@media screen and ( max-width: 400px)
+    body
+        font-size: 17px
+    .main__play
+        margin-left: 15px
+    .audio-loader
+        margin: 0 2px

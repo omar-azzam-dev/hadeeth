@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=El+Messiri&display=swap"
+			rel="stylesheet"
+		/>
+		<title>حديث</title>
+		<link rel="stylesheet" href="css/style.min.css" />
+	</head>
+	<body>
+		<!-- LOADER -->
+		<div class="loader">
+			<p class="logo loader__logo">حديث</p>
+		</div>
+
+		<div class="grass"></div>
+
+		<!-- MAIN -->
+		<main>
+			<p class="logo main__logo">حديث</p>
+			<!-- we will use js to add content to it -->
+			<div class="hadeeth-loader">
+				<div class="dot dot-1"></div>
+				<div class="dot dot-2"></div>
+				<div class="dot dot-3"></div>
+			</div>
+			<p class="hadeeth main__hadeeth"></p>
+			<!-- we will use js to add src to the audio -->
+			<audio src=""></audio>
+			<div class="controls">
+				<img src="/imgs/play.png" class="main__play" />
+				<div class="main__pause hide">
+					<div class="rect"></div>
+					<div class="rect"></div>
+				</div>
+				<div class="audio-loader">
+					<div class="audio-loader__indicator"></div>
+				</div>
+				<div class="main__stop"></div>
+
+			</div>
+			<button>حديث آخر</button>
+		</main>
+
+		<!-- FOOTER -->
+		<footer>
+			<p class="second-text">التسجيل الصوتي <a href="#">ليوسف الدالى</a></p>
+			<a href="#">صنع بشغف</a>
+			<a href="#">تبرع بصدقه جاريه لتطوير المشروع</a>
+		</footer>
+		<script src="js/index.js"></script>
+	</body>
+</html>
