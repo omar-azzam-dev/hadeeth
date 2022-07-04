@@ -87,6 +87,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  z-index: 2;
 }
 
 .hadeeth-text {
@@ -134,7 +135,7 @@ main {
 footer {
   width: 98%;
   position: fixed;
-  bottom: 30px;
+  bottom: 15px;
   left: 1%;
   display: -ms-grid;
   display: grid;
