@@ -66,7 +66,7 @@ function getNewHadeeth() {
 		sessionStorage.setItem('watched', sessionStorage.getItem('watched') + randomNum + ',');
 	}
 	function getHadeethAudio() {
-		hadeethAudio.src = `/sounds/${randomNum}.mp3`;
+		hadeethAudio.src = `./sounds/${randomNum}.mp3`;
 		hadeethAudio.onerror = (e) => {
 			getNewHadeeth.erroredAudioLoad = setTimeout(getHadeethAudio, 2000);
 		};
