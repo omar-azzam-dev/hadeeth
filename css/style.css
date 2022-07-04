@@ -8,6 +8,20 @@ body {
   overflow-x: hidden;
   font-size: 24px;
   direction: rtl;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
 }
 
 @-webkit-keyframes hide {
@@ -87,7 +101,6 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  z-index: 2;
 }
 
 .hadeeth-text {
@@ -134,9 +147,7 @@ main {
 
 footer {
   width: 98%;
-  position: fixed;
-  bottom: 15px;
-  left: 1%;
+  margin: 0 auto 15px auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -177,7 +188,6 @@ footer a:nth-of-type(2) {
     font-size: 22px;
   }
   footer {
-    position: static;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
