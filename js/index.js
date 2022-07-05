@@ -7,7 +7,7 @@ const newHadeeth = document.querySelector('.new-hadeeth');
 const audioCreator = document.querySelector('.audio-creator');
 const logo = document.querySelector('.logo');
 
-const ahadeethCount = 1;
+const ahadeethCount = 42;
 /* ------------------------------------ * ----------------------------------- */
 
 /* --------------------------- Event Listiners --------------------------- */
@@ -30,7 +30,9 @@ window.onload = function (e) {
 /* ------------------------------------ * ----------------------------------- */
 
 /* ---------------------------------- Code ---------------------------------- */
-sessionStorage.setItem('watched', '');
+if (localStorage.getItem('watched') === null) {
+	localStorage.setItem('watched', '');
+}
 getNewHadeeth();
 /* ------------------------------------ * ----------------------------------- */
 
@@ -49,9 +51,9 @@ function getNewHadeeth() {
 
 	function getUniqueRandomNum() {
 		let unique = false;
-		let readed = sessionStorage.getItem('watched').split(',');
+		let readed = localStorage.getItem('watched').split(',');
 		if (readed.length - 1 === ahadeethCount) {
-			sessionStorage.setItem('watched', '');
+			localStorage.setItem('watched', '');
 			readed = [''];
 		}
 		while (!unique) {
@@ -63,7 +65,7 @@ function getNewHadeeth() {
 				}
 			}
 		}
-		sessionStorage.setItem('watched', sessionStorage.getItem('watched') + randomNum + ',');
+		localStorage.setItem('watched', localStorage.getItem('watched') + randomNum + ',');
 	}
 	function getHadeethAudio() {
 		hadeethAudio.src = `./sounds/${randomNum}.mp3`;
