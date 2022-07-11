@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Css -->
+		<link rel="stylesheet" href="../css/donate.min.css" />
+		<title>حديث - التبرع</title>
+	</head>
+	<body>
+		<div class="under-dev">
+			<div class="modal">هذه الصفحه ما زالت تحت التطوير!</div>
+		</div>
+		<section class="text">
+			<h1>تبرع بصدقه جاريه لتطوير المشروع.</h1>
+			<p>المشروع لا يمكن ان يصل الى وجهته الا بمساعدتك!</p>
+		</section>
+		<section class="info">
+			<div class="donated">
+				<p>المبلغ المتبرع</p>
+				<p></p>
+			</div>
+			<div class="rest">
+				<p>المبلغ المتبقي</p>
+				<p></p>
+			</div>
+		</section>
+		<section class="chart">
+			<div class="chart-line"></div>
+			<div class="chart-line-reached"></div>
+
+			<div class="phase">
+				<p class="price">0.00$</p>
+				<div class="circle"></div>
+				<div class="phase-desc">بناء واطلاق الموقع التجريبي على github</div>
+			</div>
+			<div class="phase">
+				<p class="price">40.00$</p>
+				<div class="circle"></div>
+				<div class="phase-desc">شراء دومين واستضافه للموقع</div>
+			</div>
+			<div class="phase">
+				<div class="price">500.00$</div>
+				<div class="circle"></div>
+				<div class="phase-desc">انشاء التطبيق للاندورويد والايفون</div>
+			</div>
+		</section>
+		<section class="donate">
+			<span>$</span>
+			<input type="text" name="donation-amount" id="donation-amount" placeholder="2" />
+			<button class="donate-now">تبرع الان</button>
+			<p class="err-msg hide">!يرجى كتابه ارقام فقط</p>
+			<div class="paypal-btns hide"></div>
+		</section>
+		<script src="https://www.paypal.com/sdk/js?client-id=AQM_E1CQ3pAiFZPjDC5hpMPjIMgadXA01RwQ9JCpwmSusXW3AOgSJ-95bqGvFSdrmqqBqK0KTP57t0PG"></script>
+		<script src="../js/donate.js"></script>
+	</body>
+</html>

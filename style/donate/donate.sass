@@ -1,0 +1,158 @@
+// Colors
+$light-green: #71c279
+$green: #3c8143
+$light-gray: #7D7D7D
+$black: #000000
+
+*
+    padding: 0
+    margin: 0
+body 
+    width: 90vw
+    min-height: 100vh
+    font-family: 'Cairo', Arial, sans-serif
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    color: $black
+    direction: rtl
+    overflow-x: hidden
+    font-size: 25px
+    margin: 0px 5vw
+    text-align: center
+    position: relative
+button, input
+    font-family: inherit
+    font-size: inherit
+.donation-modal
+    display: none
+
+.text
+    margin-top: 60px
+    font-size: 1.5em
+.text h1
+    font-weight: 400
+.text p
+    color: $light-gray
+
+.chart
+    width: 100%
+    max-width: 1000px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin: 0 auto
+    position: relative
+    margin: 120px 0
+
+.chart-line
+    width: 100%
+    height: 25px
+    left: 0
+    top: 33.2%
+    position: absolute
+    background-color: $light-gray
+    border-radius: 50px
+    
+.chart-line-reached
+    height: 25px
+    right: 
+    top: 33.2%
+    position: absolute
+    background-color: $light-green
+    border-radius: 0px 50px 50px 0px 
+
+.phase
+    width: 200px
+    z-index: 10
+    color: $light-gray
+.circle
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    margin: 15px auto
+    background-color: $light-gray
+    box-shadow: $light-gray 0px 0px 10px 1px
+.phase-completed
+    color: $green
+.phase-completed .circle
+    background-color: $green
+    box-shadow: $green 0px 0px 10px 1px 
+
+.info
+    margin-top: 120px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: 2em
+.info div
+    margin: 0 30px
+.info div:nth-child(1)
+    color: $green
+.info div:nth-child(2)
+    color: $light-gray
+    
+.donate
+    margin-bottom: 60px
+    position: relative
+#donation-amount
+    height: 60px
+    width: 360px
+    padding: 0px 30px
+    border: 1px solid $black
+#donation-amount:after
+    content: '$'
+    color: red
+#donation-amount:focus
+    outline: 0px
+    border-color: $green
+button
+    height: 62.5px
+    width: 180px
+    background-color: $light-green
+    border: 1px solid $black
+    color: white
+    margin: 15px 15px 0 0
+button:hover, button:active
+    background-color: $green
+    cursor: pointer
+#donation-amount.border-err
+    border-color: red
+.donate span 
+    display: inline-block
+    font-size: 1.5em
+    transform: translateY(2px)
+    margin-left: 10px
+    color: $light-gray
+.err-msg
+    color: red
+    text-align: right
+    margin-right: 37px
+.hide
+    display: none !important
+.hide-overflow
+    overflow: hidden
+.blur
+    width: 100vw
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    background-color: $black
+    opacity: 90%
+    z-index: 100
+.paypal-btns
+    margin-top: 30px
+.under-dev
+    width: 100vw
+    height: 100vh
+    position: fixed
+    left: 0
+    top: 0
+    background-color: rgba(0, 0, 0, .8)
+    z-index: 10000
+.modal
+    background-color: white
+    color: red
+    padding: 20px
